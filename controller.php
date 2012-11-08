@@ -35,6 +35,7 @@ class ScheduleController extends JController
 	 */
 	function save()
 	{
+            echo 'Kosy';exit;
             // Check for request forgeries
             JRequest::checkToken() or jexit( 'Invalid Token' );
             $model = $this->getModel();
