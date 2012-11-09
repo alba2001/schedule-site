@@ -99,14 +99,14 @@ jQuery(document).ready(function($){
                 data: jQuery('#option_visit').serialize(),
                 success: function(data){
                     data = jQuery.parseJSON(data);
+                    if(data.error == 3)
+                    {
+                        jQuery('#num_card_1').addClass('f_txt_error');
+                    }
                     if(data.status == 0)
                     {
                         jQuery('#err_result').html(data.text);
                         jQuery('#err_result').show("slow");
-                        if(data.error == 3)
-                        {
-                            jQuery('#num_card_1').addClass('f_txt_error');
-                        }
                     }
                     else
                     {
