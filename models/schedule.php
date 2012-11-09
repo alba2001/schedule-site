@@ -123,7 +123,6 @@ class ScheduleModelSchedule extends JModel
             {
                 return array('status'=>0,'text'=>JText::_('VISIT_TYPE_WRONG'));
             }
-return array('status'=>0,'text'=>JText::_('DEBUG'));            
             switch ($sel_visit)
             {
                 case 1:
@@ -168,7 +167,10 @@ return array('status'=>0,'text'=>JText::_('DEBUG'));
             {
                 return array('status'=>1,'text'=>JText::_('STORE_DATA_OK'));
             }
-            return array('status'=>0,'text'=>JText::_('ERROR_STORE_DATA'));
+            else
+            {
+                return array('status'=>0,'text'=>JText::_('ERROR_STORE_DATA'));
+            }
         }
         /**
          * Возвращаем данные для записи на занятие по абонементу или клубной карте
