@@ -110,7 +110,6 @@ jQuery(document).ready(function($){
                     }
                     else
                     {
-                        jQuery(_class+' input:text').removeClass('f_txt_error');
                         jQuery('#div_option_visit').hide('slow');
                         jQuery('#succesful_entry').show('slow');
                     }
