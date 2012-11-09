@@ -62,7 +62,7 @@ class ScheduleController extends JController
 		} else {
 			$msg = JText::_( 'Error Filling Calendar' );
 		}
-                echo 'OK';exit;
+                echo $msg;exit;
 	}
 
 }
