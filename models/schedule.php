@@ -123,6 +123,7 @@ class ScheduleModelSchedule extends JModel
             {
                 return array('status'=>0,'text'=>JText::_('VISIT_TYPE_WRONG'));
             }
+return array('status'=>0,'text'=>JText::_('DEBUG'));            
             switch ($sel_visit)
             {
                 case 1:
