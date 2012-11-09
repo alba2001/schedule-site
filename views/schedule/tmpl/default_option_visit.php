@@ -44,7 +44,7 @@ jQuery(document).ready(function($){
 
                         <div class="form_unit unit_subscription">
                             <strong>Укажите ваши данные:</strong>
-                            <div class="formline"><input type="text" name="num_card_1" class="f_txt" placeholder="номер абонемента или клубной карты" /></div>
+                            <div class="formline"><input type="text" name="num_card_1" id="num_card_1" class="f_txt" placeholder="номер абонемента или клубной карты" /></div>
                             <div class="formline"><input type="text" name="phone_1" class="f_txt sh_phone" placeholder="конт. тел. в формате +79121234567" /></div>
                         </div>
 

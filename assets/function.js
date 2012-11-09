@@ -103,9 +103,14 @@ jQuery(document).ready(function($){
                     {
                         jQuery('#err_result').html(data.text);
                         jQuery('#err_result').show("slow");
+                        if(data.error == 3)
+                        {
+                            jQuery('#num_card_1').addClass('f_txt_error');
+                        }
                     }
                     else
                     {
+                        jQuery(_class+' input:text').removeClass('f_txt_error');
                         jQuery('#div_option_visit').hide('slow');
                         jQuery('#succesful_entry').show('slow');
                     }

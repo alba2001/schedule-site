@@ -115,13 +115,13 @@ class ScheduleModelSchedule extends JModel
             $calendar =& $this->getTable('calendar');
             if($calendar->out_of_visits($calendar_id))
             {
-                return array('status'=>0,'text'=>JText::_('OUT_OF_VISITS'));
+                return array('status'=>0,'error'=>1,'text'=>JText::_('OUT_OF_VISITS'));
             }
             $sel_visit = jRequest::getInt('sel_visit',NULL);
             // Проверяем какой установлен тип визита
             if(!isset($sel_visit))
             {
-                return array('status'=>0,'text'=>JText::_('VISIT_TYPE_WRONG'));
+                return array('status'=>0,'error'=>2,'text'=>JText::_('VISIT_TYPE_WRONG'));
             }
             switch ($sel_visit)
             {
@@ -130,7 +130,7 @@ class ScheduleModelSchedule extends JModel
                     $phone = JRequest::getVar('phone_1');
                     if(!$result)
                     {
-                        return array('status'=>0,'text'=>$data);
+                        return array('status'=>0,'error'=>3,'text'=>$data);
                     }
                 break;
                 case 2:
@@ -139,7 +139,7 @@ class ScheduleModelSchedule extends JModel
                     $data['training_type_id'] = 3;
                     if(!$result)
                     {
-                        return array('status'=>0,'text'=>$data);
+                        return array('status'=>0,'error'=>4,'text'=>$data);
                     }
                 break;
                 case 3:
@@ -148,7 +148,7 @@ class ScheduleModelSchedule extends JModel
                     $data['training_type_id'] = 4;
                     if(!$result)
                     {
-                        return array('status'=>0,'text'=>$data);
+                        return array('status'=>0,'error'=>5,'text'=>$data);
                     }
                 break;
             }
@@ -161,7 +161,7 @@ class ScheduleModelSchedule extends JModel
             $visit = $table->get_row(array('client_id'=>$data['client_id'], 'calendar_id'=>$data['calendar_id']));
             if($visit['id']>0)
             {
-                return array('status'=>0,'text'=>JText::_('YUOR_ARE_WRITTEN_ALREDY'));
+                return array('status'=>0,'error'=>6,'text'=>JText::_('YUOR_ARE_WRITTEN_ALREDY'));
             }
             if($table->store_data($data))
             {
@@ -169,7 +169,7 @@ class ScheduleModelSchedule extends JModel
             }
             else
             {
-                return array('status'=>0,'text'=>JText::_('ERROR_STORE_DATA'));
+                return array('status'=>0,'error'=>7,'text'=>JText::_('ERROR_STORE_DATA'));
             }
         }
         /**
