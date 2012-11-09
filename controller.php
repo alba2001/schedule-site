@@ -38,7 +38,8 @@ class ScheduleController extends JController
             // Check for request forgeries
             JRequest::checkToken() or jexit( 'Invalid Token' );
             $model = $this->getModel();
-            echo json_encode($model->save());
+//            echo json_encode($model->save());
+            echo json_encode(array('status'=>0,'text'=>JText::_('ERROR_STORE_DATA')));
             exit;
 	}
 	/**
