@@ -99,7 +99,6 @@ jQuery(document).ready(function($){
                 data: jQuery('#option_visit').serialize(),
                 success: function(data){
                     data = jQuery.parseJSON(data);
-                    console.log(data.error);
                     if(data.error == 3)
                     {
                         jQuery('#num_card_1').addClass('f_txt_error');
