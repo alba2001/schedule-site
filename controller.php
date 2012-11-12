@@ -95,8 +95,10 @@ class ScheduleController extends JController
             $params = &JComponentHelper::getParams('com_schedule');
             $email['to'] = $params->get('email');
             $email['replay'] = $config->getValue( 'config.mailfrom' );
-            $email['subject'] = JTEXT::_('Anahata trainers birthday');
-            $email['body'] = implode('</br>', $body);
+            $subject = 'Празднует день рождения через 10 дней';
+            $email['subject'] = $subject.' - '.$body[0];
+            echo $email['subject'];
+            $email['body'] = $subject.': '.implode('</br>', $body);
             $mailer = & JFactory::getMailer();
             $mailer->setSender($email['from']);
             $mailer->addRecipient($email['to']);
