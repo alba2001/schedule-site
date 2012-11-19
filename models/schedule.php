@@ -36,11 +36,11 @@ class ScheduleModelSchedule extends JModel
 	function _buildQuery()
 	{
             $query_visits = ' SELECT COUNT(*) FROM #__schedule_visits AS v WHERE v.calendar_id=c.id';
-            $query = ' SELECT c.*,  t.fam, t.im, t.ot, t.trainer_link, i.name, i.training_link,'.
+            $query = ' SELECT c.*,  t.fam, t.im, t.ot, t.trainer_link, v.name, v.training_link,'.
                         '('.$query_visits.') AS visits' 
                     .' FROM #__schedule_calendar AS c'
                     .' LEFT JOIN #__schedule_trainers AS t ON t.id = c.trainer_id'
-                    .' LEFT JOIN #__schedule_trainings AS i ON i.id = c.training_id'
+                    .' LEFT JOIN #__schedule_vids AS v ON v.id = c.vid_id'
                     .$this->_buildQueryWhere()
                     .$this->_buildQueryOrderBy()
             ;
@@ -84,7 +84,7 @@ class ScheduleModelSchedule extends JModel
         // Prepare the WHERE clause
         $where = array();
         // Where date and time more then now
-        $where[] = '(c.date > "'.date('Y-m-d').'" OR (c.date = "'.date('Y-m-d').'" AND i.time_start > "'.date('H:i').'"))';
+        $where[] = '(c.date > "'.date('Y-m-d').'" OR (c.date = "'.date('Y-m-d').'" AND c.time_start > "'.date('H:i').'"))';
         // return the WHERE clause
         return ($where) ? ' WHERE '.implode(' AND', $where) : '';
     }        
