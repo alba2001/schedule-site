@@ -83,6 +83,16 @@ class ScheduleModelSchedule extends JModel
     {
         // Prepare the WHERE clause
         $where = array();
+        global $mainframe;
+        
+        // Фильтр по виду занятий
+        $params =& $mainframe->getPageParameters();
+        $training_id = $params->get('id');
+        if($training_id)
+        {
+            $where[] = 'c.training_id = '.$training_id;
+        }
+        
         // Where date and time more then now
         $where[] = '(c.date > "'.date('Y-m-d').'" OR (c.date = "'.date('Y-m-d').'" AND c.time_start > "'.date('H:i').'"))';
         // return the WHERE clause
