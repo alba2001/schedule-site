@@ -88,7 +88,8 @@ class ScheduleModelSchedule extends JModel
         // Фильтр по виду занятий
         $params =& $mainframe->getPageParameters();
         $training_id = $params->get('id');
-        if($training_id)
+        $is_root = $params->get('is_root');
+        if(!$is_root AND $training_id)
         {
             $where[] = 'c.training_id = '.$training_id;
         }

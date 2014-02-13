@@ -4,9 +4,14 @@
  <message>Расписание занятий и заись на занятия</message>
  </layout>
  <params>
-<param type="sql" name="id" label="Выберите занятие"
-    description="Выбор одного из занятий"
-    query="SELECT id AS value, name AS id
-    FROM #__schedule_trainings" />
+    <param name="is_root" type="radio" default="1"
+        label="Весь список?" description="Выберите НЕТ, если нужно вывести указанное ниже занятие">
+        <option value="1">ДА</option>
+        <option value="0">НЕТ</option>
+    </param>
+    <param type="sql" name="id" label="Выберите занятие"
+        description="Выбор одного из занятий"
+        query="SELECT id AS value, name AS id
+        FROM #__schedule_trainings" />
  </params>
-</metadata>
+ /metadata>

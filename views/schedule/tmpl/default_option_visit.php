@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			 
 // No direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
 $action = JROUTE::_(JURI::base()."index.php?option=com_schedule&task=save"); 
@@ -30,7 +30,7 @@ jQuery(document).ready(function($){
                 <div class="mod_form">
                     <form id="option_visit" action="<?=$action?>" method="post" >
                         <input type="hidden" id="shedule_id" name="id" value="">
-                        <?php echo JHTML::_( 'form.token' ); // устанавливаем токен?>  
+                        <?php	                                       			  echo JHTML::_( 'form.token' ); // устанавливаем токен?>  
                         <div class="form_unit">
                             <strong>Вариант посещения:</strong>
                             <div class="formline">

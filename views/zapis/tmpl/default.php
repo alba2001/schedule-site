@@ -1,4 +1,4 @@
-<?php // no direct access
+<?php	                                       			  // no direct access
 defined('_JEXEC') or die('Restricted access');
 $document =& JFactory::getDocument();
 $uri_base = JURI::base().'components/com_schedule/assets/';

@@ -1,4 +1,4 @@
-<?php // no direct access
+<?php	                                       			  // no direct access
 defined('_JEXEC') or die('Restricted access');
 $document =& JFactory::getDocument();
 $uri_base = JURI::base().'components/com_schedule/assets/';
@@ -30,8 +30,8 @@ $modal_link = '#mod_option_visit';
 <div id="mod_successful_entry" class="none">
 </div>
 <div id="mod_option_visit" class="none">
-    <?php echo $this->loadTemplate('successful_entry');?>
-    <?php echo $this->loadTemplate('option_visit');?>
+    <?php	                                       			  echo $this->loadTemplate('successful_entry');?>
+    <?php	                                       			  echo $this->loadTemplate('option_visit');?>
 </div>
 <!--/Модальные окна-->
 <div id="jbArticle">
@@ -59,60 +59,60 @@ $modal_link = '#mod_option_visit';
                 <td style="width: 57px;"></td>
                 <td style="width: 30px;"></td>
             </tr>
-<?php $temp_date = ''?>
-<?php foreach($this->items as $item) :?>            
-    <?php $start_row = $temp_date==$item->date?FALSE:TRUE?>            
-            <?php if($start_row):?>
+<?php	                                       			  $temp_date = ''?>
+<?php	                                       			  foreach($this->items as $item) :?>            
+    <?php	                                       			  $start_row = $temp_date==$item->date?FALSE:TRUE?>            
+            <?php	                                       			  if($start_row):?>
             <tr>
                 <td colspan="6" valign="bottom">
-                    <?php
+                    <?php	                                       			 
                         $date = mktime(0, 0, 0, substr($item->date,5,2), substr($item->date,8,2), substr($item->date,0,4));
                         $week = (int)date('w', $date);
                         $date = substr($item->date,8,2).'.'.substr($item->date,5,2).'.'.substr($item->date,0,4);
                         $week = $this->weeks[$week];
                     ?>
                     <p><strong><span style="font-size: small;"><br />
-                        <span  class="schedule_week"><?php echo $week?></span>
+                        <span  class="schedule_week"><?php	                                       			  echo $week?></span>
                         <span style="float:right" class="schedule_date"><?=$date?>
                         </span></span></strong>
                     </p>
                     <hr />
                 </td>
             </tr>
-                <?php $temp_date = $item->date?>
-            <?php endif?>
+                <?php	                                       			  $temp_date = $item->date?>
+            <?php	                                       			  endif?>
             <tr>
-                <?php $time = substr($item->time_start,0,3).substr($item->time_start,3,2)
+                <?php	                                       			  $time = substr($item->time_start,0,3).substr($item->time_start,3,2)
                             .' - '.substr($item->time_stop,0,3).substr($item->time_stop,3,2)?>
                 <td valign="bottom"><span id="schedule_time_<?=$item->id?>" style="line-height: normal; font-size: small;">
                             <?=$time?>
                     </span></td>
                 <td valign="bottom">
                     <span style="line-height: normal; font-size: small;">
-                        <?php if($item->training_link):?>
+                        <?php	                                       			  if($item->training_link):?>
                             <a id="schedule_name_<?=$item->id?>" href="<?=$item->training_link?>">
                                 <?=$item->name?>
                             </a>
-                            <?php else :?>
+                            <?php	                                       			  else :?>
                                 <span id="schedule_name_<?=$item->id?>"><?=$item->name?></span>
-                            <?php endif?>
+                            <?php	                                       			  endif?>
                     </span></td>
                 <td valign="bottom"><span style="font-size: small;"> </span><br /></td>
                 <td valign="bottom">
                     <p><span style="font-size: small; line-height: normal;">
-                            <?php
+                            <?php	                                       			 
                                 $fio = $item->im?' '.$item->im.' ':'';
                                 $fio .= $item->fam;
 //                                $fio .= $item->im?' '.mb_substr($item->im,0,1).'.':'';
 //                                $fio .= $item->ot?' '.mb_substr($item->ot,0,1).'.':'';
                             ?>
-                            <?php if($item->trainer_link):?>
+                            <?php	                                       			  if($item->trainer_link):?>
                             <a id="schedule_fio_<?=$item->id?>" href="<?=$item->trainer_link?>">
                                 <?=$fio?>
                             </a>
-                            <?php else :?>
+                            <?php	                                       			  else :?>
                                 <span id="schedule_fio_<?=$item->id?>"><?=$fio?></span>
-                            <?php endif?>
+                            <?php	                                       			  endif?>
                         </span></p>
                 </td>
                 <td style="text-align: right; vertical-align: middle;">
@@ -121,12 +121,12 @@ $modal_link = '#mod_option_visit';
                     </a>
                 </td>
                 <td style="text-align: right; vertical-align: middle;">
-                    <?php $num=ceil($item->visits*7/$item->max_clients) ?>
+                    <?php	                                       			  $num=ceil($item->visits*7/$item->max_clients) ?>
                     <?//=$item->visits.'/'.$num?>
                     <img src="<?=  str_replace('%num%', $num, $scale_src)?>" border="0" alt=""/>
                 </td>
             </tr>
-<?php endforeach?>            
+<?php	                                       			  endforeach?>            
         </tbody>
     </table>
 </div>
